@@ -1,0 +1,21 @@
+name: Build firmware
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build with ESP-IDF
+        uses: espressif/esp-idf-ci-action@v1
+        with:
+          esp_idf_version: v6.0.3
+          target: esp32s3
+          command: idf.py build && idf.py merge-bin -o ramses_esp-merged.bin
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ramses_esp-0.5.3-wdfix1
+          path: |
+            build/ramses_esp-merged.bin
+            build/ramses_esp.bin
