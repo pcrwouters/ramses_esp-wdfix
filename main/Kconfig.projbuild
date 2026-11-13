@@ -1,0 +1,39 @@
+# put here your custom config value
+menu "RAMSES_ESP configuration"
+
+    config RADIO_CORE
+    int "Core for Radio Task"
+        range 0 1
+        default 1
+        help
+            The Radio task will run on this core.
+
+    config HOST_CORE
+    int "Core for Host Task"
+        range 0 1
+        default 0
+        help
+            The Host task will run on this core.
+
+    config FUNCTION_PIN
+    int "Function Button GPIO pin"
+      range 0 41
+      default 0
+      help
+          GPIO pin number of Function Button          
+
+    config CS_PLATFORM_PIN
+    int "CS Pin"
+      range 0 41
+      default 12
+        help
+        	GPIOx for CS Platform
+
+    config RESTART_DELAY
+    int "Restart Delay"
+      range 10 30
+      default 15
+        help
+        	FUNC button hold fore restart (Sec)
+
+endmenu

@@ -1,0 +1,23 @@
+menu "Message Configuration"
+
+    config MSG_LOG_LEVEL
+        int "Message LOG LEVEL"
+        range 0	5
+        default 2
+        help
+        	Set LOG Level for MESSAGE module
+        	0=None
+        	1=Error
+        	2=Warn
+        	3=Info
+        	4=Debug
+        	5=Verbose
+
+    config N_MSG
+        int "Pre-allocated messages"
+        range 0 16
+        default 16
+        help
+            Number of allocated messages.
+    
+endmenu
